@@ -13,6 +13,16 @@ RUN comfy-node-install \
     https://github.com/GACLove/ComfyUI-VFI.git \
     https://github.com/Lightricks/ComfyUI-LTXVideo.git
 RUN mkdir -p /comfyui/models/rife && /opt/venv/bin/python /comfyui/custom_nodes/ComfyUI-VFI/rife/download_rife.py /comfyui/models/rife && test -f /comfyui/models/rife/flownet.pkl
+# ComfyUI #12592: LTX MixedPrecisionOps creates connector Linear modules
+# without a weight attribute, then state_dict() assumes it exists.
+RUN python3 - <<'PY'
+path = "/comfyui/comfy/ops.py"
+src = open(path).read()
+needle = "if isinstance(self.weight, QuantizedTensor):"
+assert needle in src, "ComfyUI ops layout changed; review #12592 patch"
+src = src.replace(needle, "if hasattr(self, 'weight') and isinstance(self.weight, QuantizedTensor):")
+open(path, "w").write(src)
+PY
 RUN python3 - <<'PY'
 path = "/handler.py"
 src = open(path).read()

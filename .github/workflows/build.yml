@@ -17,7 +17,7 @@ jobs:
         include:
           - context: video
             image: clara-video-worker
-            tag: 10eros-canary
+            tag: 10eros-canary-v2
           - context: image
             image: clara-image-worker
             tag: krea-canary
