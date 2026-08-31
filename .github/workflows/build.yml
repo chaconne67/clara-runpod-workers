@@ -20,7 +20,7 @@ jobs:
             tag: 10eros-canary-v2
           - context: image
             image: clara-image-worker
-            tag: krea-canary
+            tag: krea-canary-v2
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
