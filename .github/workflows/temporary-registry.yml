@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   credential:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, clara-builder]
     steps:
       - name: Create short-lived RunPod registry credential
         id: registry
