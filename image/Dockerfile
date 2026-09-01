@@ -11,4 +11,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg git && r
 RUN comfy-node-install \
     https://github.com/kijai/ComfyUI-KJNodes.git \
     https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git \
-    https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler.git
+    https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler.git \
+    https://github.com/ltdrdata/ComfyUI-Impact-Pack.git \
+    https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git
