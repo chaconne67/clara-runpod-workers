@@ -17,10 +17,10 @@ jobs:
         include:
           - context: video
             image: clara-video-worker
-            tag: 10eros-canary-v2
+            tag: 10eros-v1
           - context: image
             image: clara-image-worker
-            tag: krea-canary-v2
+            tag: krea-v1
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
